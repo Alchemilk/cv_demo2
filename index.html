@@ -4,75 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alchemilk的主页</title>
-    <style>
-        /* 重置默认边距并设置全屏背景 */
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            background-image: url('images/bg_demo.png'); /* 替换为实际图片路径 */
-            background-size: cover; /* 图片覆盖整个屏幕 */
-            background-position: center; /* 图片居中显示 */
-            background-repeat: no-repeat; /* 禁止图片重复 */
-            background-attachment: fixed; /* 固定背景不随滚动移动 */
-            /* 添加flex布局使内容居中 */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        /* iPad容器样式 - 修改为横向摆放 */
-        .ipad-container {
-            /* 1. 调整宽高比例为16:9 (更宽更扁) */
-            width: 1200px;  /* 原1000px - 增加横向宽度 */
-            height: 675px;  /* 原750px - 减少纵向高度 */
-            background-color: #cccccc; 
-            border-radius: 40px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3), 
-                       inset 0 0 20px rgba(0, 0, 0, 0.1);
-            padding: 12px;  
-            position: relative;
-            /* 2. 调整缩放比例适应屏幕 (移除固定缩放，改为基于视口的动态缩放) */
-            transform: scale(calc(min(100vw / 1250, 100vh / 720))); 
-            transform-origin: top center; /* 确保缩放时顶部居中对齐 */
-            transition: transform 0.3s ease;
-        }
-        
-        /* iPad屏幕样式 */
-        .ipad-screen {
-            width: 100%;
-            height: 100%;
-            background-color: #000;
-            /* 调整圆角匹配容器 */
-            border-radius: 30px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        /* iPad Home键 - 调整到屏幕内部 */
-        .ipad-home-button {
-            width: 50px;
-            height: 50px;
-            background-color: #f0f0f0;
-            border-radius: 50%;
-            position: absolute;
-            bottom: 20px; /* 原-25px，改为屏幕内底部20px */
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <!-- 引入外部CSS文件 -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="ipad-container">
+        <!-- 添加重复水印元素 -->
+        <div class="watermark watermark-1">Alchemilk的主页</div>
+        <div class="watermark watermark-2">Alchemilk的主页</div>
+        <div class="watermark watermark-3">Alchemilk的主页</div>
         <div class="ipad-screen">
             <div class="ipad-content">
-                <!-- 这里可以放置iPad屏幕内容 -->
-                iPad 屏幕内容区域
+                <!-- 新增时间和天气控件 -->
+                <div class="time-display"></div>
+                <div class="date-display"></div> <!-- 新增日期和星期显示 -->
+                <div class="weather-display"></div>
             </div>
         </div>
         <div class="ipad-home-button"></div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
