@@ -14,7 +14,7 @@ body {
     align-items: center;
 }
 
-/* iPad容器样式 - 修改为横向摆放 */
+/* iPad容器样式 - 横向摆放 */
 .ipad-container {
     /* 1. 调整宽高比例为16:9 (更宽更扁) */
     width: 1200px;  /* 原1000px - 增加横向宽度 */
@@ -40,6 +40,39 @@ body {
     border-radius: 30px;
     overflow: hidden;
     position: relative;
+}
+
+/* 添加时间、日期和天气样式 */
+/* iPad屏幕内容样式调整 */
+.ipad-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 40px 20px 20px; 
+    box-sizing: border-box;
+    display: flex; 
+    flex-direction: column;
+    align-items: center; /* 水平居中对齐 */
+    justify-content: flex-start; /* 垂直从顶部开始排列 */
+}
+
+/* 修改天气显示样式 - 移除绝对定位 */
+.weather-display {
+    font-size: 28px; /* 增大字体和图标（原24px） */
+    font-family: 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    color: white; 
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px; /* 随日期下移（原15px） */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* 添加温度专用样式 */
+.temperature {
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 /* iPad Home键 - 调整到屏幕内部 */
@@ -102,9 +135,9 @@ body {
     bottom: 20%;
     right: 20%;
     transform: rotate(-35deg);
-}
+} /* 添加缺失的闭合括号 */
 
-/* 时间和天气显示样式 */
+/* 👇 由于上述 } 缺失，导致后续所有样式被视为 .watermark-3 的内部样式，引发解析错误 */
 .ipad-content {
     width: 100%;
     height: 100%;
@@ -112,35 +145,27 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-top: 60px; /* 增加顶部内边距，使整体内容上移 */
+    padding-top: 30px;
     color: white;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
 }
-
 .time-display {
-    /* 移除雕刻小窗口效果相关样式 */
-    padding: 10px 20px;
-    
-    /* 字体样式 - 更大更瘦 */
-    font-size: 90px; /* 增大字体 */
-    font-weight: 300; /* 减小字重，使字体更瘦 */
-    margin-bottom: 10px; /* 减小与日期控件的间距 */
-    letter-spacing: 2px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* 增强文字阴影确保可读性 */
+    font-size: 90px; /* 增大字体到90px（原76px） */
+    font-family: 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    color: #222222; /* 固定偏黑色字体 */
+    text-align: center;
+    margin-top: 40px; /* 增加上边距实现下移（原10px） */
+    font-weight: bold; /* 加粗字体 */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    letter-spacing: 1px;
 }
 
-/* 新增日期和星期样式 */
 .date-display {
-    font-size: 28px;
-    font-weight: 300;
-    margin-bottom: 30px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.weather-display {
-    font-size: 48px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 30px; /* 增大字体到30px（原24px） */
+    font-family: 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    color: #555555; /* 保持灰黑色 */
+    text-align: center;
+    margin-top: 25px; /* 增加上边距实现下移（原15px） */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    font-weight: 500; /* 保持适当加粗 */
 }
