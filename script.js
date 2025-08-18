@@ -24,42 +24,55 @@ function updateDate() {
     document.querySelector('.date-display').textContent = `${year}-${month}-${day} ${weekday}`;
 }
 
-// 天气数据数组
+// 天气数据数组 - 统一蓝色系（通过亮度和灰度调整实现变化）
+// 天气数据数组 - 按天气类型分类调整蓝色系背景
+// 天气数据数组 - 添加温度范围
 const weatherData = [
-    { emoji: '☀️', name: '晴天', color: '#87CEEB' }, // 浅蓝色
-    { emoji: '🌤️', name: '多云转晴', color: '#A4D3EE' }, // 淡蓝色
-    { emoji: '☁️', name: '多云', color: '#D3D3D3' }, // 灰色
-    { emoji: '🌧️', name: '雨天', color: '#708090' }, // 深灰色
-    { emoji: '⛅', name: '阴天', color: '#B0C4DE' }, // 亮钢蓝色
-    { emoji: '❄️', name: '雪天', color: '#F5F5F5' }, // 近白色
-    { emoji: '🌩️', name: '雷阵雨', color: '#4A4A4A' }, // 深灰色
-    { emoji: '🌫️', name: '雾天', color: '#C0C0C0' } // 银色
+    { emoji: '☀️', name: '晴天', color: '#87CEEB', tempRange: [25, 35] }, // 温度范围[最低, 最高]
+    { emoji: '🌤️', name: '多云转晴', color: '#B0E2FF', tempRange: [22, 30] },
+    { emoji: '☁️', name: '多云', color: '#A4D3EE', tempRange: [20, 28] },
+    { emoji: '🌧️', name: '雨天', color: '#5F9EA0', tempRange: [15, 22] },
+    { emoji: '⛅', name: '阴天', color: '#7BAFD4', tempRange: [18, 25] },
+    { emoji: '❄️', name: '雪天', color: '#B3CDE0', tempRange: [-5, 5] },
+    { emoji: '🌩️', name: '雷阵雨', color: '#4A6FA5', tempRange: [18, 25] },
+    { emoji: '🌫️', name: '雾天', color: '#D3D3D3', tempRange: [10, 18] }
 ];
 
 let currentWeatherIndex = 0;
 
 // 更新天气函数 - 确保随机切换
 // 更新天气函数 - 确保时间颜色跟随背景切换
+// 更新天气函数 - 添加温度显示
 function updateWeather() {
     const weatherElement = document.querySelector('.weather-display');
     const timeElement = document.querySelector('.time-display');
+    const dateElement = document.querySelector('.date-display'); 
     const ipadScreen = document.querySelector('.ipad-screen');
     
     // 随机选择天气索引
     const randomIndex = Math.floor(Math.random() * weatherData.length);
     currentWeatherIndex = randomIndex;
     
-    // 更新天气显示
-    weatherElement.textContent = `${weatherData[currentWeatherIndex].emoji} ${weatherData[currentWeatherIndex].name}`;
+    // 获取当前天气数据
+    const currentWeather = weatherData[currentWeatherIndex];
+    
+    // 生成随机温度（基于该天气的温度范围）
+    const minTemp = currentWeather.tempRange[0];
+    const maxTemp = currentWeather.tempRange[1];
+    const randomTemp = Math.floor(Math.random() * (maxTemp - minTemp + 1)) + minTemp;
+    
+    // 更新天气和温度显示（中文逗号分隔）
+    weatherElement.textContent = `${currentWeather.emoji} ${currentWeather.name}，${randomTemp}°C`;
     
     // 更新屏幕背景颜色
     const bgColor = weatherData[currentWeatherIndex].color;
     ipadScreen.style.backgroundColor = bgColor;
     
-    // 根据背景色亮度自动调整文字颜色（确保时间数字颜色跟随背景）
+    // 根据背景色亮度自动调整文字颜色（仅天气）
     const luminance = getLuminance(bgColor);
-    const textColor = luminance > 0.5 ? '#333333' : '#ffffff'; // 亮色背景用深色文字，暗色背景用白色文字
-    timeElement.style.color = textColor; // 设置时间数字颜色
+    const textColor = luminance > 0.5 ? '#333333' : '#ffffff';
+    
+    // 仅更新天气文本颜色（移除日期颜色设置）
     weatherElement.style.color = textColor;
 }
 
