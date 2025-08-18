@@ -3,8 +3,7 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    /* 修复：确保图片路径正确，或替换为实际存在的图片路径 */
-    background-image: url('../images/bg_demo.png'); /* 修正路径为上一级目录下的images文件夹 */
+    background-image: url('../images/bg_demo.png'); /* 路径为上一级目录下的images文件夹 */
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
