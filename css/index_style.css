@@ -3,12 +3,11 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background-image: url('../images/bg_demo.png'); /* 路径为上一级目录下的images文件夹 */
+    background-image: url('../images/bg_demo.png');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
     background-attachment: fixed; 
-    /* 添加flex布局使内容居中 */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,27 +15,25 @@ body {
 
 /* iPad容器样式 - 横向摆放 */
 .ipad-container {
-    /* 1. 调整宽高比例为16:9 (更宽更扁) */
-    width: 1200px; 
-    height: 675px;
-    background-color: #cccccc; 
-    border-radius: 40px;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3), 
-               inset 0 0 20px rgba(0, 0, 0, 0.1);
-    padding: 12px;  
+    width: 1000px; 
+    height: 650px;
+    background-color: #f5f5f7; 
+    border-radius: 50px;
+    box-shadow: 
+        0 0 0 15px #1d1d1f,
+        0 30px 60px rgba(0, 0, 0, 0.5),
+        0 0 100px rgba(0, 0, 0, 0.3),
+        inset 0 0 20px rgba(0, 0, 0, 0.2);
     position: relative;
-    /* 2. 调整缩放比例适应屏幕 (移除固定缩放，改为基于视口的动态缩放) */
-    transform: scale(calc(min(100vw / 1250, 100vh / 720))); 
-    transform-origin: top center; /* 确保缩放时顶部居中对齐 */
-    transition: transform 0.3s ease;
+    overflow: hidden;
 }
 
-/* iPad屏幕样式 */
+/* iPad屏幕样式 - 添加窄白边 */
 .ipad-screen {
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    /* 调整圆角匹配容器 */
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    margin: 20px;
+    background-color: #f5f5f7;
     border-radius: 30px;
     overflow: hidden;
     position: relative;
@@ -52,36 +49,52 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 30px;
+    padding-top: 50px;
     justify-content: flex-start;
     color: white;
     font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
 }
 
-/* iPad Home键 - 调整到屏幕内部 */
+/* iPad Home键 - 金属质感优化 */
 .ipad-home-button {
     width: 50px;
     height: 50px;
-    background-color: #f0f0f0;
-    border-radius: 50%;
+    background-color: #d0d0d5;
+    border-radius: 50px;
     position: absolute;
-    bottom: 20px; /* 原-25px，改为屏幕内底部20px */
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(220, 220, 220, 0.7);
+    box-shadow: 
+        0 0 0 1px rgba(50, 50, 50, 0.15),
+        0 3px 6px rgba(0, 0, 0, 0.15),
+        inset 0 1px 3px rgba(255, 255, 255, 0.6),
+        inset 0 -2px 4px rgba(50, 50, 50, 0.15);
+    transition: all 0.1s ease;
+}
+
+/* 拟物点击效果 - 增强灰色金属按压感 */
+.ipad-home-button:active {
+    transform: translateX(-50%) scale(0.95);
+    box-shadow: 
+        0 0 0 1px rgba(50, 50, 50, 0.2),
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        inset 0 1px 1px rgba(50, 50, 50, 0.2),
+        inset 0 -1px 2px rgba(220, 220, 220, 0.6);
+    background-color: #c0c0c5;
 }
 
 /* 添加水印元素样式 */
 .watermark {
     position: absolute;
     font-size: 60px;
-    z-index: 1; /* 确保在背景之上，内容之下 */
+    z-index: 1;
     pointer-events: none;
     white-space: nowrap;
     font-weight: bold;
-    opacity: 0.08; /* 降低不透明度，使水印更淡 */
-    color: rgba(0, 0, 0, 0.3); /* 添加水印颜色，使其在各种背景下保持一致外观 */
+    opacity: 0.08;
+    color: rgba(0, 0, 0, 0.3);
 }
 
 /* 三个水印的不同位置和旋转角度 */
@@ -104,44 +117,60 @@ body {
 }
 
 /* 添加时间、日期星期和天气温度样式 */
-/* 1. 时间控件样式 */
 .time-display {
     font-size: 90px;
-    font-family: 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif;
-    color: #222222;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #1d1d1f;
     text-align: center;
-    margin-top: 40px;
-    font-weight: bold;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    letter-spacing: 1px;
+    margin-top: 10px;
+    font-weight: 500;
+    text-shadow: 
+        0 1px 1px rgba(255, 255, 255, 0.8),
+        0 -1px 1px rgba(0, 0, 0, 0.1),
+        1px 0 1px rgba(0, 0, 0, 0.1);
+    letter-spacing: -1px;
 }
 
-/* 2. 日期星期控件样式 */
 .date-display {
-    font-size: 30px;
+    font-size: 22px;
     font-family: 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
     color: #555555;
     text-align: center;
-    margin-top: 25px;
+    margin-top: 15px;
     text-shadow: 0 1px 2px rgba(0,0,0,0.1);
     font-weight: 500;
 }
 
-/* 3. 天气温度控件样式（合并重复定义） */
 .weather-display {
-    font-size: 28px;
-    font-family: 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-    color: white;
+    font-size: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #555555;
     text-align: center;
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-top: 20px;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    justify-content: center;
+    gap: 1.5em;
+    margin-top: 25px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7), 
+                 0 1px 2px rgba(0, 0, 0, 0.05);
+    font-weight: 600;
+    letter-spacing: 0.3px;
 }
 
-/* 4.温度样式 */
 .temperature {
     font-weight: 500;
     text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* 摄像头凹槽 */
+.notch {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 25px;
+    background-color: #1d1d1f;
+    border-radius: 15px;
+    z-index: 10;
 }
