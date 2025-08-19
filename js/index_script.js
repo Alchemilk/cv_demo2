@@ -28,14 +28,14 @@ function updateDate() {
 // 天气数据数组 - 按天气类型分类调整蓝色系背景
 // 天气数据数组 - 添加温度范围
 const weatherData = [
-    { emoji: '☀️', name: '晴天', color: '#87CEEB', tempRange: [25, 35] }, // 温度范围[最低, 最高]
-    { emoji: '🌤️', name: '多云转晴', color: '#B0E2FF', tempRange: [22, 30] },
-    { emoji: '☁️', name: '多云', color: '#A4D3EE', tempRange: [20, 28] },
-    { emoji: '🌧️', name: '雨天', color: '#5F9EA0', tempRange: [15, 22] },
-    { emoji: '⛅', name: '阴天', color: '#7BAFD4', tempRange: [18, 25] },
-    { emoji: '❄️', name: '雪天', color: '#B3CDE0', tempRange: [-5, 5] },
-    { emoji: '🌩️', name: '雷阵雨', color: '#4A6FA5', tempRange: [18, 25] },
-    { emoji: '🌫️', name: '雾天', color: '#D3D3D3', tempRange: [10, 18] }
+    { emoji: '☀️', name: '晴天', color: '#E3F2FD', tempRange: [25, 35] }, // 更浅的蓝色
+    { emoji: '🌤️', name: '多云转晴', color: '#E8F5FE', tempRange: [22, 30] }, // 更浅的浅蓝色
+    { emoji: '☁️', name: '多云', color: '#E0F2F1', tempRange: [20, 28] }, // 更浅的蓝绿色
+    { emoji: '🌧️', name: '雨天', color: '#B2DFDB', tempRange: [15, 22] }, // 更浅的青绿色
+    { emoji: '⛅', name: '阴天', color: '#BBDEFB', tempRange: [18, 25] }, // 更浅的天蓝色
+    { emoji: '❄️', name: '雪天', color: '#E3F2FD', tempRange: [-5, 5] }, // 更浅的冰蓝色
+    { emoji: '🌩️', name: '雷阵雨', color: '#90CAF9', tempRange: [18, 25] }, // 更浅的蓝色
+    { emoji: '🌫️', name: '雾天', color: '#F5F5F5', tempRange: [10, 18] } // 接近白色的浅灰色
 ];
 
 let currentWeatherIndex = 0;
@@ -61,19 +61,17 @@ function updateWeather() {
     const maxTemp = currentWeather.tempRange[1];
     const randomTemp = Math.floor(Math.random() * (maxTemp - minTemp + 1)) + minTemp;
     
-    // 更新天气和温度显示（中文逗号分隔）
-    weatherElement.textContent = `${currentWeather.emoji} ${currentWeather.name}，${randomTemp}°C`;
+    // 更新天气和温度显示（使用制表符分隔）
+    weatherElement.textContent = `${currentWeather.emoji} ${currentWeather.name}\t${randomTemp}°C`;
     
     // 更新屏幕背景颜色
     const bgColor = weatherData[currentWeatherIndex].color;
     ipadScreen.style.backgroundColor = bgColor;
     
-    // 根据背景色亮度自动调整文字颜色（仅天气）
-    const luminance = getLuminance(bgColor);
-    const textColor = luminance > 0.5 ? '#333333' : '#ffffff';
-    
-    // 仅更新天气文本颜色（移除日期颜色设置）
-    weatherElement.style.color = textColor;
+    /* 删除以下动态调整天气文本颜色的代码，确保使用CSS中定义的#555555 */
+    // const luminance = getLuminance(bgColor);
+    // const textColor = luminance > 0.5 ? '#333333' : '#ffffff';
+    // weatherElement.style.color = textColor;
 }
 
 // 辅助函数：获取颜色亮度
