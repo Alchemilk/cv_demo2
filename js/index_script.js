@@ -1,4 +1,4 @@
-// 更新时间函数，精确到秒
+// 时间控件 - 更新时间函数，精确到秒
 function updateTime() {
     const now = new Date();
     const hours = String(now.getHours()).padStart(2, '0');
@@ -10,7 +10,7 @@ function updateTime() {
     updateDate();
 }
 
-// 新增：更新日期和星期函数
+// 日期星期控件 - 更新日期和星期函数
 function updateDate() {
     const now = new Date();
     const year = now.getFullYear();
@@ -67,14 +67,10 @@ function updateWeather() {
     // 更新屏幕背景颜色
     const bgColor = weatherData[currentWeatherIndex].color;
     ipadScreen.style.backgroundColor = bgColor;
-    
-    /* 删除以下动态调整天气文本颜色的代码，确保使用CSS中定义的#555555 */
-    // const luminance = getLuminance(bgColor);
-    // const textColor = luminance > 0.5 ? '#333333' : '#ffffff';
-    // weatherElement.style.color = textColor;
+
 }
 
-// 辅助函数：获取颜色亮度
+// 辅助函数：获取颜色亮度（当前无用处，暂时保留以备不时之需）
 function getLuminance(color) {
     let R = parseInt(color.substring(1, 3), 16);
     let G = parseInt(color.substring(3, 5), 16);
@@ -100,5 +96,6 @@ setInterval(updateTime, 1000); // 每秒更新时间
 // 页面加载时随机选择初始天气
 currentWeatherIndex = Math.floor(Math.random() * weatherData.length);
 updateWeather();
+
 // 设置15秒自动切换天气
 setInterval(updateWeather, 15000); // 每15秒切换一次天气
