@@ -1,4 +1,4 @@
-/* 重置默认边距并设置全屏背景 */
+/* 设置默认边距并设置全屏背景 */
 body {
     margin: 0;
     padding: 0;
@@ -26,6 +26,19 @@ body {
         inset 0 0 20px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
+}
+
+/* 摄像头凹槽 */
+.notch {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 25px;
+    background-color: #1d1d1f;
+    border-radius: 15px;
+    z-index: 10;
 }
 
 /* iPad屏幕样式 - 添加窄白边 */
@@ -160,17 +173,4 @@ body {
 .temperature {
     font-weight: 500;
     text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-}
-
-/* 摄像头凹槽 */
-.notch {
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px;
-    height: 25px;
-    background-color: #1d1d1f;
-    border-radius: 15px;
-    z-index: 10;
 }
