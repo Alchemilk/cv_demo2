@@ -99,3 +99,28 @@ updateWeather();
 
 // 设置15秒自动切换天气
 setInterval(updateWeather, 15000); // 每15秒切换一次天气
+
+// 在文件末尾添加Home按钮交互逻辑
+document.addEventListener('DOMContentLoaded', function() {
+    // 获取Home按钮元素
+    const homeButton = document.querySelector('.ipad-home-button');
+    
+    if (homeButton) {
+        // 添加点击事件
+        homeButton.addEventListener('click', function() {
+            console.log('Home按钮被点击');
+            
+            // 添加点击反馈（震动+视觉效果）
+            if ('vibrate' in navigator) {
+                navigator.vibrate(10);
+            }
+            
+            // 可添加额外逻辑（如返回主屏幕等）
+        });
+        
+        // 验证按钮是否正确获取
+        console.log('Home按钮元素已找到');
+    } else {
+        console.error('未找到Home按钮元素，请检查HTML结构');
+    }
+});
