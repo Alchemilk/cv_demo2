@@ -69,11 +69,13 @@ body {
 }
 
 /* iPad Home键 - 金属质感优化 */
+/* 确保Home键点击样式生效 */
+/* iPad Home键 - 添加点击效果 */
 .ipad-home-button {
     width: 50px;
     height: 50px;
-    background-color: #d0d0d5;
     border-radius: 50px;
+    background-color: #d0d0d5;
     position: absolute;
     bottom: 25px;
     left: 50%;
@@ -85,9 +87,43 @@ body {
         inset 0 1px 3px rgba(255, 255, 255, 0.6),
         inset 0 -2px 4px rgba(50, 50, 50, 0.15);
     transition: all 0.1s ease;
+    cursor: pointer; /* 显示点击光标 */
+}
+
+/* Home键点击反馈 */
+.ipad-home-button:active {
+    transform: translateX(-50%) scale(0.95); /* 按压缩放 */
+    box-shadow: 
+        0 0 0 1px rgba(50, 50, 50, 0.2),
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        inset 0 2px 3px rgba(0, 0, 0, 0.2),
+        inset 0 -1px 2px rgba(255, 255, 255, 0.4);
 }
 
 /* 拟物点击效果 - 增强灰色金属按压感 */
+/* 合并Home键点击反馈样式（删除重复定义） */
+/* 合并Home按钮样式，确保点击反馈生效 */
+.ipad-home-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #d0d0d5;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid rgba(220, 220, 220, 0.7);
+    box-shadow: 
+        0 0 0 1px rgba(50, 50, 50, 0.15),
+        0 3px 6px rgba(0, 0, 0, 0.15),
+        inset 0 1px 3px rgba(255, 255, 255, 0.6),
+        inset 0 -2px 4px rgba(50, 50, 50, 0.15);
+    transition: all 0.1s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    z-index: 10; /* 确保在其他元素之上 */
+}
+
+/* 合并点击反馈样式 */
 .ipad-home-button:active {
     transform: translateX(-50%) scale(0.95);
     box-shadow: 
