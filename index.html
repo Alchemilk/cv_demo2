@@ -28,6 +28,48 @@
                 <div class="date-display"></div>
                 <div class="weather-display"></div>
 
+                <!-- 添加应用图标区域 -->
+                <div class="app-container">
+                    <div class="app-grid">
+                        <!-- 我的简历（修复后结构） -->
+                        <div class="app-icon resume" data-app="resume">
+                            <div class="app-icon-bg">
+                                <!-- 将emoji移动到.app-icon-bg内部 -->
+                                <div class="app-icon-symbol">📄</div>
+                            </div>
+                            <div class="app-icon-label">我的简历</div>
+                        </div>
+                        
+                        <!-- 我的作品（相同结构修复） -->
+                        <div class="app-icon works" data-app="works">
+                            <div class="app-icon-bg">
+                                <div class="app-icon-symbol">🖼️</div>
+                            </div>
+                            <div class="app-icon-label">我的作品</div>
+                        </div>
+                        
+                        <!-- 其他应用图标（同上结构修复） -->
+                        <div class="app-icon life" data-app="life">
+                            <div class="app-icon-bg">
+                                <div class="app-icon-symbol">🌱</div>
+                            </div>
+                            <div class="app-icon-label">我的生活</div>
+                        </div>
+                        <div class="app-icon contact" data-app="contact">
+                            <div class="app-icon-bg">
+                                <div class="app-icon-symbol">📞</div>
+                            </div>
+                            <div class="app-icon-label">联系方式</div>
+                        </div>
+                        <div class="app-icon settings" data-app="settings">
+                            <div class="app-icon-bg">
+                                <div class="app-icon-symbol">⚙️</div>
+                            </div>
+                            <div class="app-icon-label">设置</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -38,5 +80,9 @@
 
     <!-- 引入外部jS文件 -->
     <script src="js/index_script.js"></script>
+    
+    <!-- 引入新的应用样式和脚本 -->
+    <link rel="stylesheet" href="css/app_style.css">
+    <script src="js/app_script.js"></script>
 </body>
 </html>
