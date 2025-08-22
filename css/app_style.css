@@ -1,7 +1,8 @@
-/* 应用容器样式 - 进一步向上移动 */
+/* 应用容器样式 - 位置 */
 .app-container {
     position: absolute;
-    bottom: 10px; /* 从20px调整为10px，向上再移动10px */
+    bottom: 10px; /* 从20px调整为10px*/
+    top: 55%;
     left: 0;
     width: 100%;
     display: flex;
@@ -9,7 +10,7 @@
     z-index: 5;
 }
 
-/* 应用图标网格布局 - 进一步增大间距 */
+/* 应用图标网格布局 - 增大间距 */
 .app-grid {
     display: flex;
     justify-content: center;
@@ -25,6 +26,7 @@
     opacity: 0; /* 初始隐藏，用于动画 */
     transform: scale(0.8); /* 初始缩放，用于动画 */
     animation: fadeInScale 0.5s ease-out forwards; /* 苹果风格加载动画 */
+    pointer-events: none;
 }
 
 /* 为每个图标添加错开的动画延迟，模拟苹果加载效果 */
@@ -104,39 +106,6 @@
 .app-icon.contact .app-icon-bg { background: rgba(251, 191, 36, 0.65); } /* 联系方式 - 亮黄色 */
 .app-icon.settings .app-icon-bg { background: rgba(209, 213, 219, 0.65); } /* 设置 - 浅灰色 */
 
-
-/* 应用容器样式 - 进一步向上移动 */
-.app-container {
-    position: absolute;
-    /* 使用top定位：值越小越靠近顶部（符合"向上移动"直觉） */
-    top: 55%; /* 当前距离顶部55%，减小此值（如50%）会更靠上 */
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    z-index: 5;
-}
-
-/* 应用图标网格布局 - 进一步增大间距 */
-.app-grid {
-    display: flex;
-    justify-content: center;
-    gap: 60px; /* 横向间距增大至60px */
-}
-
-/* 应用图标样式 - 基础结构 */
-/* 应用图标样式 - 限制点击区域 */
-.app-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100px;
-    opacity: 0;
-    transform: scale(0.8);
-    animation: fadeInScale 0.5s ease-out forwards;
-    /* 防止标签区域触发点击 */
-    pointer-events: none;
-}
 
 /* 仅按钮背景可点击 */
 .app-icon-bg {
