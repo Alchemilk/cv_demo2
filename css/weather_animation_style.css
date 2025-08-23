@@ -13,14 +13,14 @@
 /* 云的形态 - 移除规则圆形限制 */
 .cloud-base {
     border-radius: 60% 40% 55% 45%; /* 不规则圆角 */
-    filter: blur(15px); /* 更柔和的模糊 */
+    filter: blur(20px); /* 增加模糊度至20px，原15px */
 }
 
 .cloud-bump {
     border-radius: 50% 60% 40% 70%; /* 不规则凸起形状 */
     position: absolute;
     background-color: inherit;
-    filter: blur(5px); /* 独立模糊，增强层次感 */
+    filter: blur(8px); /* 增加凸起模糊度至8px，原5px */
 }
 
 /* 天气动画容器 */

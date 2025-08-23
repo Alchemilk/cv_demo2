@@ -23,23 +23,25 @@ class Cloud {
         this.container.style.width = `${this.size}px`;
         this.container.style.height = `${this.size * 0.5}px`; // 高度略大于之前，更蓬松
         this.container.style.backgroundColor = `rgba(255, 255, 255, ${this.density})`;
-        // 不规则圆角，模拟自然云朵轮廓（不再是完美圆形）
-        this.container.style.borderRadius = `${60 + Math.random() * 20}% ${40 + Math.random() * 20}% ${50 + Math.random() * 10}% ${50 + Math.random() * 10}%`;
-        this.container.style.filter = `blur(${8 + Math.random() * 4}px)`; // 随机模糊度（8-12px）
+        // 增强基础形状的不规则性
+        this.container.style.borderRadius = `${40 + Math.random() * 60}% ${20 + Math.random() * 80}% ${50 + Math.random() * 50}% ${30 + Math.random() * 70}%`;
+        this.container.style.filter = `blur(${10 + Math.random() * 5}px)`; // 增加基础模糊随机性，原8-12px
         this.container.style.left = `${this.positionX}px`;
         this.container.style.top = `${this.positionY}px`;
         
         // 添加云朵凸起，使用不规则形状和随机分布
-        const bumpCount = Math.floor(Math.random() * 3) + 4; // 4-6个凸起，比之前更多样
+        // 添加云朵凸起，使用不规则形状和随机分布
+        // 增加凸起数量至5-8个，原4-6个
+        const bumpCount = Math.floor(Math.random() * 4) + 5; 
         for (let i = 0; i < bumpCount; i++) {
             const bump = document.createElement('div');
             bump.className = 'cloud-bump';
             
             // 凸起尺寸随机化（不再是正圆形）
             const bumpWidth = Math.random() * this.size * 0.4 + this.size * 0.2; // 0.2-0.6倍基础尺寸
-            const bumpHeight = bumpWidth * (0.7 + Math.random() * 0.5); // 高度随机（0.7-1.2倍宽度），形成椭圆
+            const bumpHeight = bumpWidth * (0.6 + Math.random() * 0.6); // 增加高度随机性，原0.7-1.2倍
             const posX = (i / (bumpCount - 1)) * 100;
-            const posY = -Math.random() * 50 - 30; // 垂直位置随机
+            const posY = -Math.random() * 60 - 20; // 扩大垂直位置随机范围，原-50-30
             
             // 不规则凸起形状（椭圆+随机圆角）
             bump.style.width = `${bumpWidth}px`;
@@ -47,10 +49,10 @@ class Cloud {
             bump.style.left = `${posX}%`;
             bump.style.top = `${posY}%`;
             bump.style.transform = 'translate(-50%, 0)';
-            // 随机圆角，避免完美圆形
-            bump.style.borderRadius = `${50 + Math.random() * 50}% ${30 + Math.random() * 70}% ${60 + Math.random() * 40}% ${40 + Math.random() * 60}%`;
+            // 增加圆角随机性范围
+            bump.style.borderRadius = `${20 + Math.random() * 80}% ${10 + Math.random() * 90}% ${30 + Math.random() * 70}% ${0 + Math.random() * 100}%`;
             // 轻微透明度变化，增强层次感
-            bump.style.opacity = `${0.8 + Math.random() * 0.2}`;
+            bump.style.opacity = `${0.7 + Math.random() * 0.3}`; // 增加透明度变化范围，原0.8-1.0
             
             this.container.appendChild(bump);
             this.bumps.push(bump);
