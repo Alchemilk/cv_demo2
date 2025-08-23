@@ -28,14 +28,14 @@ function updateDate() {
 // 天气数据数组 - 按天气类型分类调整蓝色系背景
 // 天气数据数组 - 添加温度范围
 const weatherData = [
-    { emoji: '☀️', name: '晴天', color: '#E3F2FD', tempRange: [25, 35] }, // 更浅的蓝色
-    { emoji: '🌤️', name: '多云转晴', color: '#E8F5FE', tempRange: [22, 30] }, // 更浅的浅蓝色
-    { emoji: '☁️', name: '多云', color: '#E0F2F1', tempRange: [20, 28] }, // 更浅的蓝绿色
-    { emoji: '🌧️', name: '雨天', color: '#B2DFDB', tempRange: [15, 22] }, // 更浅的青绿色
-    { emoji: '⛅', name: '阴天', color: '#BBDEFB', tempRange: [18, 25] }, // 更浅的天蓝色
-    { emoji: '❄️', name: '雪天', color: '#E3F2FD', tempRange: [-5, 5] }, // 更浅的冰蓝色
-    { emoji: '🌩️', name: '雷阵雨', color: '#90CAF9', tempRange: [18, 25] }, // 更浅的蓝色
-    { emoji: '🌫️', name: '雾天', color: '#F5F5F5', tempRange: [10, 18] } // 接近白色的浅灰色
+    { emoji: '☀️', name: '晴天', color: '#66B2FF', tempRange: [25, 35] }, // 二次元风格天蓝色
+    { emoji: '🌤️', name: '多云转晴', color: '#99CEFF', tempRange: [22, 30] }, // 比晴天稍微浅一点的天蓝色
+    { emoji: '☁️', name: '多云', color: '#99CEFF', tempRange: [20, 28] }, // 比晴天稍微浅一点的天蓝色
+    { emoji: '🌧️', name: '雨天', color: '#8BA3CB', tempRange: [15, 22] }, // 灰暗的蓝色
+    { emoji: '⛅', name: '阴天', color: '#8BA3CB', tempRange: [18, 25] }, // 灰暗的蓝色
+    { emoji: '❄️', name: '雪天', color: '#8BA3CB', tempRange: [-5, 5] }, // 灰暗的蓝色
+    { emoji: '🌩️', name: '雷阵雨', color: '#8BA3CB', tempRange: [18, 25] }, // 灰暗的蓝色
+    { emoji: '🌫️', name: '雾天', color: '#99CEFF', tempRange: [10, 18] } // 比晴天稍微浅一点的天蓝色
 ];
 
 let currentWeatherIndex = 0;
@@ -68,25 +68,6 @@ function updateWeather() {
     const bgColor = weatherData[currentWeatherIndex].color;
     ipadScreen.style.backgroundColor = bgColor;
 
-}
-
-// 辅助函数：获取颜色亮度（当前无用处，暂时保留以备不时之需）
-function getLuminance(color) {
-    let R = parseInt(color.substring(1, 3), 16);
-    let G = parseInt(color.substring(3, 5), 16);
-    let B = parseInt(color.substring(5, 7), 16);
-
-    R /= 255;
-    G /= 255;
-    B /= 255;
-
-    const [r, g, b] = [R, G, B].map(component => {
-        return component <= 0.03928
-            ? component / 12.92
-            : Math.pow((component + 0.055) / 1.055, 2.4);
-    });
-
-    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 }
 
 // 初始化并设置定时器
