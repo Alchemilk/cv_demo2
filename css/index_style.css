@@ -20,23 +20,58 @@ body {
     background-color: #f5f5f7; 
     border-radius: 50px;
     box-shadow: 
-        0 0 0 15px #1d1d1f,
+        0 0 0 15px #1d1d1f, /* 黑色外边框（关键：为Home键嵌入提供背景）*/
         0 30px 60px rgba(0, 0, 0, 0.5),
         0 0 100px rgba(0, 0, 0, 0.3),
-        inset 0 0 20px rgba(0, 0, 0, 0.2);
+        inset 0 0 20px rgba(0,0,0,0.2);
     position: relative;
     overflow: hidden;
 }
 
 /* iPad屏幕样式 - 添加窄白边 */
 .ipad-screen {
-    width: calc(100% - 40px);
+    width: calc(100% - (20px + 50px)); /* 左侧20px + 右侧50px */
     height: calc(100% - 40px);
-    margin: 20px;
+    margin-top: 20px;
+    margin-right: 50px; 
+    margin-bottom: 20px;
+    margin-left: 20px; 
     background-color: #f5f5f7;
     border-radius: 30px;
     overflow: hidden;
     position: relative;
+}
+
+/* 添加Home键样式 - iPad Air 2风格 */
+.ipad-home-button { 
+    position: absolute;
+    right: 3px; /* 微调位置，更贴近边框 */
+    top: 50%; 
+    transform: translateY(-50%);
+    width: 38px; 
+    height: 38px; 
+    border-radius: 50%;
+    /* 更接近iPad原生的银白色渐变 */
+    background: linear-gradient(145deg, #f5f5f7, #ffffff); 
+    /* 铝合金质感亮银色边框 */
+    border: 2px solid #c8c8c8; 
+    /* 优化阴影层次，模拟金属凹陷感 */
+    box-shadow: 
+        0 0 1px rgba(0, 0, 0, 0.3), /* 极细外边框阴影 */
+        inset 0 2px 4px rgba(0, 0, 0, 0.25), /* 上侧内阴影 */
+        inset 0 -1px 2px rgba(255, 255, 255, 0.15); /* 弱化下侧高光 */
+    cursor: pointer;
+    transition: all 0.12s ease;
+    z-index: 20;
+}
+
+/* Home键按压效果 - 增强物理反馈 */
+.ipad-home-button:active {
+    transform: translateY(-50%) scale(0.93); /* 更自然的按压缩放 */
+    box-shadow: 
+        0 0 1px rgba(0, 0, 0, 0.2),
+        inset 0 4px 6px rgba(0, 0, 0, 0.3), /* 加深内阴影 */
+        inset 0 -1px 1px rgba(255, 255, 255, 0.1);
 }
 
 /* iPad屏幕内容样式调整 */
