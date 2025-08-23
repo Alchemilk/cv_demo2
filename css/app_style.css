@@ -104,17 +104,26 @@
     opacity: 0.95; /* 降低透明度变化幅度 */
 }
 
-/* 各应用独特颜色（苹果风格半透明毛玻璃） */
-/* 各应用独特颜色（优化透明度与色调，协调天气背景） */
-/* 各应用独特颜色（统一为比天气背景略深的半透明效果） */
-.app-icon.resume .app-icon-bg { background: rgba(0, 0, 0, 0.12); } /* 半透明黑色叠加（略深于天气背景） */
-.app-icon.works .app-icon-bg { background: rgba(0, 0, 0, 0.12); }
-.app-icon.life .app-icon-bg { background: rgba(0, 0, 0, 0.12); }
-.app-icon.contact .app-icon-bg { background: rgba(0, 0, 0, 0.12); }
-.app-icon.settings .app-icon-bg { background: rgba(0, 0, 0, 0.12); }
-
+/* 各应用（苹果风格半透明毛玻璃,优化透明度与色调） */
 .app-icon.resume .app-icon-bg { background: rgba(245, 245, 245, 0.85); } /* 乳白色半透明 */
 .app-icon.works .app-icon-bg { background: rgba(245, 245, 245, 0.85); } /* 乳白色半透明 */
 .app-icon.life .app-icon-bg { background: rgba(245, 245, 245, 0.85); } /* 乳白色半透明 */
 .app-icon.contact .app-icon-bg { background: rgba(245, 245, 245, 0.85); } /* 乳白色半透明 */
 .app-icon.settings .app-icon-bg { background: rgba(245, 245, 245, 0.85); } /* 乳白色半透明 */
+
+/* 通用图标图片样式 - 合并所有应用图标的重复样式 */
+.app-icon .app-icon-symbol {
+    font-size: 0; /* 清除原有emoji字体大小影响 */
+    text-shadow: none; /* 清除文字阴影 */
+    
+    /* 图片居中显示 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-icon .app-icon-symbol img { 
+    width: 70px;  /* 与其他图标保持一致大小 */
+    height: 70px;
+    object-fit: contain; /* 保持图片比例 */
+}
