@@ -67,7 +67,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     pointer-events: auto;
     cursor: pointer;
@@ -85,11 +85,11 @@
 
 /* 应用图标标签 - 美化字体样式 */
 .app-icon-label {
-    font-size: 15px; /* 适度增大字号 */
+    font-size: 17px; /* 适度增大字号 */
     color: #333333; /* 柔和深灰色，提升可读性 */
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; /* 苹果官方文本字体 */
     letter-spacing: -0.35px; /* 优化字间距 */
-    margin-top: 6px;
+    margin-top: 0px;
     text-align: center;
     text-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 1px 1px rgba(255,255,255,0.9); /* 双层阴影增强层次感 */
     font-weight: 500; /* 中等字重，平衡清晰度与柔和度 */
