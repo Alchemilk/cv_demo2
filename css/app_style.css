@@ -52,22 +52,25 @@
     }
 }
 
-/* 应用图标背景 - 毛玻璃效果 */
+/* 应用图标背景 - 毛玻璃效果（增强苹果风格） */
 .app-icon-bg {
     width: 80px;
     height: 80px;
-    border-radius: 18px;
+    border-radius: 20px; /* 增大圆角更接近iOS图标 */
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08);
-    display: flex; /* 强制内部元素居中 */
-    align-items: center; /* 垂直居中 */
-    justify-content: center; /* 水平居中 */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* 降低边框透明度 */
+    /* 优化阴影：更柔和的外阴影+轻微内高光 */
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.08), /* 更浅的外阴影 */
+        inset 0 1px 2px rgba(255, 255, 255, 0.5); /* 顶部内高光 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 10px;
     transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-    pointer-events: auto; /* 明确允许点击 */
-    cursor: pointer; /* 添加手型光标 */
+    pointer-events: auto;
+    cursor: pointer;
 }
 
 /* 应用图标符号 - 继承居中属性 */
@@ -94,14 +97,24 @@
 
 /* 应用图标点击拟物效果（苹果风格按压反馈） */
 .app-icon:active .app-icon-bg {
-    transform: scale(0.93); /* 苹果风格按压缩放 */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), inset 0 2px 4px rgba(0, 0, 0, 0.1); /* 按压时内阴影 */
-    opacity: 0.9;
+    transform: scale(0.95); /* 更自然的按压缩放（原0.93） */
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.1), /* 按压时外阴影减弱 */
+        inset 0 2px 4px rgba(0, 0, 0, 0.12); /* 内阴影加深 */
+    opacity: 0.95; /* 降低透明度变化幅度 */
 }
 
 /* 各应用独特颜色（苹果风格半透明毛玻璃） */
-.app-icon.resume .app-icon-bg { background: rgba(96, 165, 250, 0.65); } /* 简历 - 亮蓝色 */
-.app-icon.works .app-icon-bg { background: rgba(192, 132, 252, 0.65); } /* 作品 - 亮紫色 */
-.app-icon.life .app-icon-bg { background: rgba(110, 231, 183, 0.65); } /* 生活 - 亮绿色 */
-.app-icon.contact .app-icon-bg { background: rgba(251, 191, 36, 0.65); } /* 联系方式 - 亮黄色 */
-.app-icon.settings .app-icon-bg { background: rgba(209, 213, 219, 0.65); } /* 设置 - 浅灰色 */
+/* 各应用独特颜色（优化透明度与色调，协调天气背景） */
+/* 各应用独特颜色（统一为比天气背景略深的半透明效果） */
+.app-icon.resume .app-icon-bg { background: rgba(0, 0, 0, 0.12); } /* 半透明黑色叠加（略深于天气背景） */
+.app-icon.works .app-icon-bg { background: rgba(0, 0, 0, 0.12); }
+.app-icon.life .app-icon-bg { background: rgba(0, 0, 0, 0.12); }
+.app-icon.contact .app-icon-bg { background: rgba(0, 0, 0, 0.12); }
+.app-icon.settings .app-icon-bg { background: rgba(0, 0, 0, 0.12); }
+
+.app-icon.resume .app-icon-bg { background: rgba(245, 245, 245, 0.85); } /* 乳白色半透明 */
+.app-icon.works .app-icon-bg { background: rgba(245, 245, 245, 0.85); } /* 乳白色半透明 */
+.app-icon.life .app-icon-bg { background: rgba(245, 245, 245, 0.85); } /* 乳白色半透明 */
+.app-icon.contact .app-icon-bg { background: rgba(245, 245, 245, 0.85); } /* 乳白色半透明 */
+.app-icon.settings .app-icon-bg { background: rgba(245, 245, 245, 0.85); } /* 乳白色半透明 */
