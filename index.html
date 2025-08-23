@@ -7,7 +7,11 @@
     <!-- 引入外部CSS文件 -->
     <link rel="stylesheet" href="css/index_style.css">
     <link rel="stylesheet" href="css/app_style.css">
+    
+    <!-- 添加天气动画样式 -->
+    <link rel="stylesheet" href="css/weather_animation_style.css">
 </head>
+
 <body>
     <!-- ipad形状的容器区域 -->
     <div class="ipad-container">
@@ -17,7 +21,8 @@
         <!-- ipad屏幕区域 -->
         <div class="ipad-screen">
             <div class="ipad-content">
-
+                <!-- 天气动画将在这里动态添加 -->
+                
                 <!-- 添加重复水印元素 -->
                 <div class="watermark watermark-1">Alchemilk的主页</div>
                 <div class="watermark watermark-2">Alchemilk的主页</div>
@@ -34,7 +39,6 @@
                         <!-- 我的简历 -->
                         <div class="app-icon resume" data-app="resume">
                             <div class="app-icon-bg">
-                                <!-- 将emoji替换为图片 -->
                                 <div class="app-icon-symbol">
                                     <img src="images/resume.png" alt="简历">
                                 </div>
@@ -45,7 +49,6 @@
                         <!-- 我的作品 -->
                         <div class="app-icon works" data-app="works">
                             <div class="app-icon-bg">
-                                <!-- 将emoji替换为图片 -->
                                 <div class="app-icon-symbol">
                                     <img src="images/works.png" alt="作品">
                                 </div>
@@ -56,7 +59,6 @@
                         <!-- 我的生活 -->
                         <div class="app-icon life" data-app="life">
                             <div class="app-icon-bg">
-                                <!-- 将emoji替换为图片 -->
                                 <div class="app-icon-symbol">
                                     <img src="images/life.png" alt="生活">
                                 </div>
@@ -67,7 +69,6 @@
                         <!-- 联系方式 -->
                         <div class="app-icon contact" data-app="contact">
                             <div class="app-icon-bg">
-                                <!-- 将emoji替换为图片 -->
                                 <div class="app-icon-symbol">
                                     <img src="images/contact_info.png" alt="联系方式">
                                 </div>
@@ -78,7 +79,6 @@
                         <!-- 设置 -->
                         <div class="app-icon settings" data-app="settings">
                             <div class="app-icon-bg">
-                                <!-- 将emoji替换为图片 -->
                                 <div class="app-icon-symbol">
                                     <img src="images/settings.png" alt="设置">
                                 </div>
@@ -88,13 +88,12 @@
 
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
 
-    <!-- 引入外部jS文件 -->
+    <!-- 引入外部JS文件 -->
+    <script src="js/weather_animation_script.js"></script>
     <script src="js/index_script.js"></script>
 </body>
 </html>

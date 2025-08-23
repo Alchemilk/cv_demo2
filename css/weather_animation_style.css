@@ -1,1 +1,111 @@
-###
+/* 阳光效果 */
+.sunlight {
+    background: radial-gradient(
+        ellipse at 80% 20%,
+        rgba(255, 240, 180, 0.7) 0%,
+        rgba(255, 240, 180, 0.5) 30%,
+        rgba(255, 240, 180, 0.2) 60%,
+        rgba(255, 240, 180, 0) 80%
+    );
+}
+
+/* 云的形态 */
+/* 云的形态 - 移除规则圆形限制 */
+.cloud-base {
+    border-radius: 60% 40% 55% 45%; /* 不规则圆角 */
+    filter: blur(15px); /* 更柔和的模糊 */
+}
+
+.cloud-bump {
+    border-radius: 50% 60% 40% 70%; /* 不规则凸起形状 */
+    position: absolute;
+    background-color: inherit;
+    filter: blur(5px); /* 独立模糊，增强层次感 */
+}
+
+/* 天气动画容器 */
+.weather-animation-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+/* 天空背景 */
+.sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #66B2FF 0%, #99CEFF 100%);
+}
+
+/* 云影容器 */
+.cloud-shadows {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* 云朵容器 */
+.clouds {
+    position: absolute;
+    inset: 0;
+}
+
+/* 太阳样式 - 增大尺寸并添加闪耀效果 */
+.sun {
+    position: absolute;
+    top: 5vh;
+    right: 5vw; /* 保持靠右位置 */
+    width: 100px; /* 进一步增大尺寸 */
+    height: 100px; /* 进一步增大尺寸 */
+    border-radius: 50%;
+    /* 增强写实感的径向渐变 */
+    background: radial-gradient(
+        circle, 
+        rgba(255, 255, 255, 1) 0%,    /* 中心纯白高光 */
+        rgba(255, 250, 200, 1) 25%,   /* 内层亮黄 */
+        rgba(255, 230, 150, 1) 50%,   /* 中层暖黄 */
+        rgba(255, 190, 80, 1) 75%,    /* 外层橙色 */
+        rgba(255, 150, 50, 1) 100%    /* 边缘暖红 */
+    );
+    /* 多层次光晕效果 */
+    box-shadow: 
+        0 0 40px 20px rgba(255, 230, 150, 0.8),   /* 内层强光 */
+        0 0 80px 40px rgba(255, 200, 100, 0.5),   /* 中层光晕 */
+        0 0 120px 60px rgba(255, 160, 80, 0.3),   /* 外层弱光 */
+        inset 0 0 30px 10px rgba(255, 255, 200, 0.6); /* 内部反光 */
+    /* 更自然的闪耀动画 */
+    animation: shinePulse 5s infinite ease-in-out; /* 延长周期并使用更自然的缓动函数 */
+}
+
+/* 闪耀动画 - 模拟太阳闪烁效果 */
+@keyframes shinePulse {
+    0% {
+        transform: scale(1); 
+        box-shadow: 
+            0 0 50px 25px rgba(255, 240, 120, 0.6),
+            0 0 100px 50px rgba(255, 240, 120, 0.2);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1.1); /* 轻微缩放 */
+        box-shadow: 
+            0 0 70px 35px rgba(255, /* 增强发光范围 */
+            255, 150, 50, 0.8),
+            0 0 140px 70px rgba(255, /* 增强外层光晕 */
+            255, 150, 50, 0.4);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
